@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer with Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .pdf-container {
+            width: 80%;
+            height: 80%;
+            overflow: auto;
+            border: 2px solid #ccc;
+            display: none;
+        }
+        #message {
+            font-size: 20px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Viewer</h1>
+    <div id="message">Time's up! The PDF is no longer visible.</div>
+    <div class="pdf-container" id="pdf-container">
+        <iframe src="53.pdf" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        const pdfContainer = document.getElementById('pdf-container');
+        const message = document.getElementById('message');
+        
+        // Show the PDF on page load
+        pdfContainer.style.display = 'block';
+        
+        // Hide the PDF after 1 minute (60,000 ms)
+        setTimeout(() => {
+            pdfContainer.style.display = 'none';
+            message.style.display = 'block';
+        }, 60000); // 60 seconds
+    </script>
+</body>
+</html>
